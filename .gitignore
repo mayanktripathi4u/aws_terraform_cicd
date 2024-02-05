@@ -34,7 +34,7 @@ override.tf.json
 terraform.rc
 
 # Custome Files to Ignore
-.txt
+*.txt
 
 ## Ignore MacOS .DS_Store file
 .DS_Store

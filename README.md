@@ -55,7 +55,9 @@ Thus you need a backend to create a backend. This circular dependency is the ess
 There are many methods available to address this challenge.
 1. You can manually create the necessary resources using a managemet concole.
 2. Use the AWS Command Line Interface (CLI) to set up the required resources 
+        
         aws s3api create-bucket --bucket myterraform-state-bucket
+    
     {
         "Location":"/myterraform-state-bucket"
     }
