@@ -32,3 +32,9 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Custome Files to Ignore
+.txt
+
+## Ignore MacOS .DS_Store file
+.DS_Store

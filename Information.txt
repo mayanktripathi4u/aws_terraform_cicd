@@ -1,7 +1,6 @@
-# AWS and Terraform Project and CICD Pipeline.
-Hosting a Static Website on AWS and maintaining the infrastructure using Terraform, also making it automated using CICD.
+Refer Playlist: https://www.youtube.com/playlist?list=PLfmMgg_VrrlAz4s0UxLCdgZlcw2iCqVrD
 
-## Step 1: Creating and Cloning a GIT Repo.
+Step 1: Creating and Cloning a GIT Repo.
     Create a Repo in GIT browser.
         say "aws_terraform_cicd"
 
@@ -10,7 +9,7 @@ Hosting a Static Website on AWS and maintaining the infrastructure using Terrafo
 
     Open the Editor (VS Code)
 
-## Step 2: Setting up the working Environment.
+Step 2: Setting up the working Environment.
     Installing aws cli; terraform cli and ensuring git is setup.
 
     After install configure aws credentials using 
@@ -25,9 +24,7 @@ Hosting a Static Website on AWS and maintaining the infrastructure using Terrafo
         Add or create code in the website folder for using your choice of programming language.
         May be say Flask App.
 
-    Will work on this soon.
-
-## Step 3: Creating essential Terraform files and folders.
+Step 3: Creating essential Terraform files and folders.
     Create a directory at root folder for Terraform say "terraform"
     Inside "terraform" create another subfolder as "modules" and below files inside "terraform" folder.
         main.tf
@@ -35,12 +32,11 @@ Hosting a Static Website on AWS and maintaining the infrastructure using Terrafo
         variables.tf
         terraform.tfvars
 
-    Will work on this soon.
-
-## Step 4: Commiting the Terraform and Website files and pushing changes to GitHub.
+Step 4: Commiting the Terraform and Website files and pushing changes to GitHub.
     Adding .DS_Store file into .gitignore file as this is MacOS specific and is of no use in other than MacOS.
     Also add any other custom files if like to ignore.
 
     Next stage all the changes to Git.
         `git add .`
         `git commit -m 'adding website and terraform folder structure'
+        `git push` or `git push origin master`
