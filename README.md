@@ -55,12 +55,12 @@ Thus you need a backend to create a backend. This circular dependency is the ess
 There are many methods available to address this challenge.
 1. You can manually create the necessary resources using a managemet concole.
 2. Use the AWS Command Line Interface (CLI) to set up the required resources 
-    aws s3api create-bucket --bucket myterraform-state-bucket
+        aws s3api create-bucket --bucket myterraform-state-bucket
     {
         "Location":"/myterraform-state-bucket"
     }
 
-    aws s3api put-bucket-versioning --bucket myterraform-state-bucket --versioning-configuration Status=Enabled
+        aws s3api put-bucket-versioning --bucket myterraform-state-bucket --versioning-configuration Status=Enabled
 
 3. Alterbatively could you Bash Script that automates the creation og necessary backend resources.
 4. Use terraform itself and create a remote-backend module, a module dedicated  to the backend setupkeeps the related logic separate from your primary infrastructure code.
@@ -75,4 +75,4 @@ After setting up the backend resources you will initialize your terraform projec
 With the backend inplace you can continue with your regular terraform workflows.
 
 ### Step 5.1: Creating a Remote Backend Module
-    
+
