@@ -38,5 +38,9 @@ Step 4: Commiting the Terraform and Website files and pushing changes to GitHub.
 
     Next stage all the changes to Git.
         `git add .`
-        `git commit -m 'adding website and terraform folder structure'
+        `git commit -m 'adding website and terraform folder structure'`
         `git push` or `git push origin master`
+
+
+
+

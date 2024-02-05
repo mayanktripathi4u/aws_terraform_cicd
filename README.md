@@ -44,3 +44,35 @@ Hosting a Static Website on AWS and maintaining the infrastructure using Terrafo
     Next stage all the changes to Git.
         `git add .`
         `git commit -m 'adding website and terraform folder structure'
+        `git push` or `git push origin master`
+
+## Step 5: Terraform Backend
+Terraform remote backend is designed to store the state of your infrastructure in a remote datastore  such as Amazon S3, with optional state locking through services like AWS DynamoDB .
+This setup ensures your backed up, versioned and protected against concurrent modifications.
+The dilemma arises when you consider the following 
+To initialize a remote backend like AWS S3 you might ideally used terraform to create the necessary resources like an S3 bucket. Howevre to run terraform and create any resources you require a backend to store at state.
+Thus you need a backend to create a backend. This circular dependency is the essense of Chicken and egg problem in this context.
+There are many methods available to address this challenge.
+1. You can manually create the necessary resources using a managemet concole.
+2. Use the AWS Command Line Interface (CLI) to set up the required resources 
+    aws s3api create-bucket --bucket myterraform-state-bucket
+    {
+        "Location":"/myterraform-state-bucket"
+    }
+
+    aws s3api put-bucket-versioning --bucket myterraform-state-bucket --versioning-configuration Status=Enabled
+
+3. Alterbatively could you Bash Script that automates the creation og necessary backend resources.
+4. Use terraform itself and create a remote-backend module, a module dedicated  to the backend setupkeeps the related logic separate from your primary infrastructure code.
+This separation ensures cleaner and more maintaibanle and reusable code.
+In the first task you will begin by creating a remote backend module.
+    terraform
+     |-- modules
+         |-- 
+
+You will create a necessary resources like S3 bucket for storing state and a DynamoDB table for state locking.
+After setting up the backend resources you will initialize your terraform project and configure it to use the remote backend pointing to the spawned by the module.
+With the backend inplace you can continue with your regular terraform workflows.
+
+### Step 5.1: Creating a Remote Backend Module
+    
