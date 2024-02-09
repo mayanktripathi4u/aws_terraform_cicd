@@ -58,9 +58,9 @@ There are many methods available to address this challenge.
         
         aws s3api create-bucket --bucket myterraform-state-bucket
     
-    {
-        "Location":"/myterraform-state-bucket"
-    }
+        {
+            "Location":"/myterraform-state-bucket"
+        }
 
         aws s3api put-bucket-versioning --bucket myterraform-state-bucket --versioning-configuration Status=Enabled
 
@@ -77,4 +77,13 @@ After setting up the backend resources you will initialize your terraform projec
 With the backend inplace you can continue with your regular terraform workflows.
 
 ### Step 5.1: Creating a Remote Backend Module
+In here we will focus on setting up the necessary AWS resources required for a Terraform Remote Backend.
+You will create a reusable remote backend module that compromises of the following resources - 
+* IAM -- An IAM user for terraform, this user will have necessary permissions to manage your infrastructure. 
+Its a good practice to have a specific IAM user for Terraform to limit the permissions and scope of actions that Terraform can perform, ensuing that terraform has only the permissions it needs and no more. 
+* S3 Bucket for Terraform State -- this S3 bucket will be used to store your terraform State file allowing for easy access and versioning of your infrastructure State.
+* S3 Bucket Policy --  This policy will specify the permissions for the S3 bucket allowing the terraform user to list the bucket and to retrieve as well as deposit the objects within it.
+* DynamoDB -- A DynamoDB table for State Locking, this DynamoDB table will be used to lock the state file when a team member is applying changes to the infrastructure, preventing conflits.
+
+Lets setup this.
 
